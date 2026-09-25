@@ -21,10 +21,10 @@ export default function PromoVideo() {
           <video
             controls
             preload="metadata"
-            poster="/banner.png"
+            poster="/Short_Course_On_AI_And_Society/banner.png"
             className="w-full block"
           >
-            <source src="/promo.mp4" type="video/mp4" />
+            <source src="/Short_Course_On_AI_And_Society/promo.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>

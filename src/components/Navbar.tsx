@@ -44,7 +44,7 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#" className="flex items-center gap-3">
           <Image
-            src="/acm-logo.webp"
+            src="/Short_Course_On_AI_And_Society/acm-logo.webp"
             alt="NSU ACM Student Chapter Logo"
             width={44}
             height={44}

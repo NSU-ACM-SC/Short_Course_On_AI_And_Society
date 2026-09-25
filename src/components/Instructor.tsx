@@ -26,7 +26,7 @@ export default function Instructor() {
           {/* Photo */}
           <div className="brutal-border-thick brutal-shadow overflow-hidden bg-acm-blue aspect-square mx-auto md:mx-0 max-w-[300px] w-full">
             <Image
-              src="/Mor-Namaan.jpg"
+              src="/Short_Course_On_AI_And_Society/Mor-Namaan.jpg"
               alt="Professor Mor Naaman — Cornell Tech"
               width={600}
               height={600}

@@ -37,7 +37,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-5">
               <Image
-                src="/acm-logo.webp"
+                src="/Short_Course_On_AI_And_Society/acm-logo.webp"
                 alt="NSU ACM SC"
                 width={44}
                 height={44}
