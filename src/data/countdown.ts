@@ -26,7 +26,7 @@ export const countdownData: CountdownData = {
     secs: "Secs",
   },
   registerButton: {
-    label: "Pre-Register Now →",
+    label: "Register Now →",
     fallbackHref: "#register",
   },
   facebookButton: {

@@ -35,7 +35,7 @@ export const registrationData: RegistrationData = {
   ],
   preRegistrationLink,
   registrationLink,
-  buttonLabel: "Pre-Register Now →",
+  buttonLabel: "Register Now →",
   alertMessage: "Registration link will be available soon. Stay tuned!",
   pendingNotice: "⚠ Registration link will be pasted here soon",
   disclaimer:
