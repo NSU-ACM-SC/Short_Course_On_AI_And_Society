@@ -28,7 +28,7 @@ export const instructorData: InstructorData = {
     "Don & Mibs Follett Professor of Information Science and Associate Dean for Faculty Affairs",
   institution: "Cornell Tech",
   image: {
-    src: "/Short_Course_On_AI_And_Society/Mor-Namaan.jpg",
+    src: "/Short_Course_On_AI_And_Society/Mor-Namaan.webp",
     alt: "Professor Mor Naaman — Cornell Tech",
     width: 600,
     height: 600,

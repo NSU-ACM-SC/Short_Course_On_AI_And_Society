@@ -16,7 +16,7 @@ export const promoVideoData: PromoVideoData = {
     prefix: "Watch the ",
     highlight: "Trailer",
   },
-  poster: "/Short_Course_On_AI_And_Society/banner.png",
+  poster: "/Short_Course_On_AI_And_Society/banner.webp",
   src: "/Short_Course_On_AI_And_Society/promo.mp4",
   type: "video/mp4",
   fallbackText: "Your browser does not support the video tag.",
