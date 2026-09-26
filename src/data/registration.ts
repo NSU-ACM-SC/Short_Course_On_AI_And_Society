@@ -20,7 +20,7 @@ export interface RegistrationData {
 
 // Pre-registration & registration links
 export const preRegistrationLink = "https://forms.gle/ZxV6yKN3DZvfrAMs7";
-export const registrationLink = preRegistrationLink;
+export const registrationLink = "https://forms.gle/PTLPWoqfMjNxjK7m9";
 
 export const registrationData: RegistrationData = {
   badge: "Register Now",
