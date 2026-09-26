@@ -1,18 +1,24 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { eventDetails } from "@/lib/constants";
+import { eventDetails } from "@/data/event";
+import { countdownData } from "@/data/countdown";
 import { FacebookIcon } from "@/components/Icons";
 
 export default function Countdown() {
-  const [time, setTime] = useState({ days: "--", hours: "--", mins: "--", secs: "--" });
+  const [time, setTime] = useState({
+    days: "--",
+    hours: "--",
+    mins: "--",
+    secs: "--",
+  });
   const [started, setStarted] = useState(false);
 
   const hasRegistration = eventDetails.registrationLink.trim().length > 0;
   const registerHref = hasRegistration
     ? eventDetails.registrationLink
-    : "#register";
-  const registerLabel = "Pre-Register Now →";
+    : countdownData.registerButton.fallbackHref;
+  const registerLabel = countdownData.registerButton.label;
 
   useEffect(() => {
     const target = new Date(eventDetails.startDate).getTime();
@@ -28,7 +34,9 @@ export default function Countdown() {
       }
 
       const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const h = Math.floor(
+        (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
       const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
       const s = Math.floor((diff % (1000 * 60)) / 1000);
 
@@ -46,10 +54,10 @@ export default function Countdown() {
   }, []);
 
   const units = [
-    { value: time.days, label: "Days" },
-    { value: time.hours, label: "Hours" },
-    { value: time.mins, label: "Mins" },
-    { value: time.secs, label: "Secs" },
+    { value: time.days, label: countdownData.units.days },
+    { value: time.hours, label: countdownData.units.hours },
+    { value: time.mins, label: countdownData.units.mins },
+    { value: time.secs, label: countdownData.units.secs },
   ];
 
   return (
@@ -58,7 +66,7 @@ export default function Countdown() {
         {/* Countdown */}
         <div className="flex items-center gap-6 sm:gap-10 flex-wrap justify-center">
           <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-widest text-acm-blue-light">
-            {started ? "The Course Has Begun!" : "Course Starts In"}
+            {started ? countdownData.startedText : countdownData.upcomingText}
           </span>
           <div className="flex gap-3 sm:gap-4">
             {units.map((u) => (
@@ -91,7 +99,7 @@ export default function Countdown() {
             className="inline-flex items-center gap-2 font-mono text-xs sm:text-sm font-bold uppercase tracking-wider px-6 sm:px-8 py-3 sm:py-3.5 bg-white/10 text-white border-2 border-white/40 hover:bg-white/20 hover:border-white/70 transition-all"
           >
             <FacebookIcon />
-            Facebook Event
+            {countdownData.facebookButton.label}
           </a>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Space_Mono } from "next/font/google";
+import { eventMetadata } from "@/data/event";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -17,19 +18,9 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Cornell Tech AI & Society Masterclass | NSU ACM Student Chapter",
-  description:
-    "A 3-Day Short Course on AI & Society at North South University, led by Professor Mor Naaman of Cornell Tech. September 30 – October 2, 2026. Powered by Cognition.",
-  keywords: [
-    "AI and Society",
-    "Cornell Tech",
-    "NSU ACM",
-    "North South University",
-    "Mor Naaman",
-    "Generative AI",
-    "Masterclass",
-    "Short Course",
-  ],
+  title: eventMetadata.title,
+  description: eventMetadata.description,
+  keywords: eventMetadata.keywords,
 };
 
 export default function RootLayout({
@@ -38,7 +29,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${spaceMono.variable}`}>
+    <html
+      lang="en"
+      className={`${spaceGrotesk.variable} ${spaceMono.variable}`}
+    >
       <body className="bg-offwhite text-black overflow-x-hidden">
         {children}
       </body>

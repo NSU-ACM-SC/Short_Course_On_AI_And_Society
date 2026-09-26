@@ -1,21 +1,13 @@
-const items = [
-  "Generative AI",
-  "Large Language Models",
-  "Trust & Safety",
-  "Privacy",
-  "Education",
-  "Employment",
-  "Human Behavior",
-  "Communication",
-  "Cornell Tech",
-  "Powered by Cognition",
-];
+import { tickerItems } from "@/data/ticker";
 
 export default function Ticker() {
-  const doubled = [...items, ...items];
+  const doubled = [...tickerItems, ...tickerItems];
 
   return (
-    <div className="bg-acm-blue brutal-border-thick border-x-0 overflow-hidden py-3.5" aria-hidden="true">
+    <div
+      className="bg-acm-blue brutal-border-thick border-x-0 overflow-hidden py-3.5"
+      aria-hidden="true"
+    >
       <div className="flex w-max animate-ticker">
         {doubled.map((item, i) => (
           <span

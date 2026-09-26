@@ -1,10 +1,7 @@
 import Image from "next/image";
-import {
-  chapterEmail,
-  chapterSocialLinks,
-  chapterAddress,
-  eventDetails,
-} from "@/lib/constants";
+import { footerData } from "@/data/navigation";
+import { contactData } from "@/data/contact";
+import { eventDetails } from "@/data/event";
 import {
   FacebookIcon,
   YouTubeIcon,
@@ -12,20 +9,22 @@ import {
   GitHubIcon,
 } from "@/components/Icons";
 
-const socialItems = [
-  { label: "Facebook", href: chapterSocialLinks.Facebook, Icon: FacebookIcon },
-  { label: "YouTube", href: chapterSocialLinks.YouTube, Icon: YouTubeIcon },
-  { label: "LinkedIn", href: chapterSocialLinks.LinkedIn, Icon: LinkedInIcon },
-  { label: "GitHub", href: chapterSocialLinks.GitHub, Icon: GitHubIcon },
-];
+const iconMap = {
+  Facebook: FacebookIcon,
+  YouTube: YouTubeIcon,
+  LinkedIn: LinkedInIcon,
+  GitHub: GitHubIcon,
+};
 
-const quickLinks = [
-  { label: "About", href: "#about" },
-  { label: "Instructor", href: "#instructor" },
-  { label: "Details", href: "#details" },
-  { label: "Registration", href: "#register" },
-  { label: "Contact", href: "#contact" },
-];
+const socialItems = (
+  Object.keys(footerData.socialLinks) as Array<
+    keyof typeof footerData.socialLinks
+  >
+).map((key) => ({
+  label: key,
+  href: footerData.socialLinks[key],
+  Icon: iconMap[key],
+}));
 
 export default function Footer() {
   return (
@@ -37,23 +36,22 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-5">
               <Image
-                src="/Short_Course_On_AI_And_Society/acm-logo.webp"
-                alt="NSU ACM SC"
+                src={footerData.brand.logoSrc}
+                alt={footerData.brand.title}
                 width={44}
                 height={44}
               />
               <div>
                 <span className="block font-mono font-bold text-sm leading-tight">
-                  NSU ACM
+                  {footerData.brand.title}
                 </span>
                 <span className="block font-mono font-bold text-xs text-white/50 leading-tight">
-                  Student Chapter
+                  {footerData.brand.subtitle}
                 </span>
               </div>
             </div>
             <p className="text-sm text-white/50 leading-relaxed max-w-xs">
-              Department of Electrical &amp; Computer Engineering, North South
-              University.
+              {footerData.brand.description}
             </p>
 
             {/* Social Icons */}
@@ -79,7 +77,7 @@ export default function Footer() {
               Quick Links
             </h4>
             <ul className="space-y-3">
-              {quickLinks.map((link) => (
+              {footerData.quickLinks.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
@@ -100,22 +98,22 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href={`mailto:${chapterEmail}`}
+                  href={`mailto:${contactData.email}`}
                   className="font-mono text-sm text-white/60 hover:text-acm-blue-light transition-colors"
                 >
-                  {chapterEmail}
+                  {contactData.email}
                 </a>
               </li>
               <li>
                 <a
-                  href={chapterAddress.mapUrl}
+                  href={contactData.address.mapUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-mono text-sm text-white/60 hover:text-acm-blue-light transition-colors leading-relaxed"
                 >
-                  {chapterAddress.line1}
+                  {contactData.address.line1}
                   <br />
-                  {chapterAddress.line2}, {chapterAddress.line3}
+                  {contactData.address.line2}, {contactData.address.line3}
                 </a>
               </li>
               <li className="pt-2">
@@ -138,9 +136,8 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="font-mono text-[0.65rem] text-white/30 tracking-wider">
-            © 2026 NSU ACM Student Chapter. All rights
-            reserved. <br />
-            Developed by Web Group, NSU ACM Student Chapter.
+            {footerData.copyright} <br />
+            {footerData.credits}
           </p>
           <p className="font-mono text-[0.65rem] text-white/30 tracking-wider">
             {eventDetails.title} · {eventDetails.date}

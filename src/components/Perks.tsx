@@ -1,7 +1,7 @@
 "use client";
 
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { perks } from "@/lib/constants";
+import { perksData, PerkItem } from "@/data/perks";
 
 export default function Perks() {
   const titleRef = useScrollReveal();
@@ -11,15 +11,16 @@ export default function Perks() {
       <div className="max-w-7xl mx-auto px-6">
         <div ref={titleRef} className="reveal">
           <span className="inline-block bg-acm-blue text-white font-mono text-xs font-bold uppercase tracking-widest px-4 py-1.5 brutal-border brutal-shadow mb-5">
-            What You Get
+            {perksData.badge}
           </span>
           <h2 className="text-[clamp(2rem,5vw,3.2rem)] font-bold leading-[1.1] tracking-tight mb-10">
-            More Than Just <span className="text-acm-blue">a Course</span>
+            {perksData.heading.prefix}
+            <span className="text-acm-blue">{perksData.heading.highlight}</span>
           </h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {perks.map((perk, i) => (
+          {perksData.perks.map((perk, i) => (
             <PerkCard key={i} {...perk} />
           ))}
         </div>
@@ -28,15 +29,7 @@ export default function Perks() {
   );
 }
 
-function PerkCard({
-  icon,
-  title,
-  description,
-}: {
-  icon: string;
-  title: string;
-  description: string;
-}) {
+function PerkCard({ icon, title, description }: PerkItem) {
   const ref = useScrollReveal();
 
   return (

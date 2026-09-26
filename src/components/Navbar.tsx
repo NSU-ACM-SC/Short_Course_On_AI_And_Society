@@ -2,14 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-
-const navItems = [
-  { label: "About", href: "#about" },
-  { label: "Instructor", href: "#instructor" },
-  { label: "Details", href: "#details" },
-  { label: "Perks", href: "#perks" },
-  { label: "Partners", href: "#partners" },
-];
+import { navbarData } from "@/data/navigation";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -21,7 +14,10 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
     if (href.startsWith("#")) {
       e.preventDefault();
       const el = document.querySelector(href);
@@ -44,20 +40,20 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#" className="flex items-center gap-3">
           <Image
-            src="/Short_Course_On_AI_And_Society/acm-logo.webp"
-            alt="NSU ACM Student Chapter Logo"
+            src={navbarData.logo.src}
+            alt={navbarData.logo.alt}
             width={44}
             height={44}
             className="h-11 w-auto"
           />
           <span className="font-mono font-bold text-sm tracking-tight hidden sm:inline">
-            NSU ACM SC
+            {navbarData.logo.text}
           </span>
         </a>
 
         {/* Desktop Links */}
         <ul className="hidden lg:flex items-center gap-2">
-          {navItems.map((item) => (
+          {navbarData.navItems.map((item) => (
             <li key={item.href}>
               <a
                 href={item.href}
@@ -70,11 +66,11 @@ export default function Navbar() {
           ))}
           <li>
             <a
-              href="#register"
-              onClick={(e) => handleNavClick(e, "#register")}
+              href={navbarData.cta.href}
+              onClick={(e) => handleNavClick(e, navbarData.cta.href)}
               className="font-mono text-xs font-bold uppercase tracking-wider px-4 py-2 bg-acm-blue text-white border-2 border-black brutal-shadow hover:bg-acm-blue-dark hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[1px_1px_0_#000] transition-all"
             >
-              Register →
+              {navbarData.cta.label}
             </a>
           </li>
         </ul>
@@ -85,16 +81,28 @@ export default function Navbar() {
           className="lg:hidden flex flex-col gap-1.5 p-2 border-2 border-black bg-white cursor-pointer"
           aria-label="Toggle navigation menu"
         >
-          <span className={`w-6 h-0.5 bg-black transition-all ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
-          <span className={`w-6 h-0.5 bg-black transition-all ${menuOpen ? "opacity-0" : ""}`} />
-          <span className={`w-6 h-0.5 bg-black transition-all ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          <span
+            className={`w-6 h-0.5 bg-black transition-all ${
+              menuOpen ? "rotate-45 translate-y-2" : ""
+            }`}
+          />
+          <span
+            className={`w-6 h-0.5 bg-black transition-all ${
+              menuOpen ? "opacity-0" : ""
+            }`}
+          />
+          <span
+            className={`w-6 h-0.5 bg-black transition-all ${
+              menuOpen ? "-rotate-45 -translate-y-2" : ""
+            }`}
+          />
         </button>
       </div>
 
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="lg:hidden bg-offwhite brutal-border-thick border-t-0 border-x-0 px-6 pb-4">
-          {navItems.map((item) => (
+          {navbarData.navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
@@ -105,11 +113,11 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="#register"
-            onClick={(e) => handleNavClick(e, "#register")}
+            href={navbarData.cta.href}
+            onClick={(e) => handleNavClick(e, navbarData.cta.href)}
             className="block mt-3 font-mono text-xs font-bold uppercase tracking-wider py-3 text-center bg-acm-blue text-white border-2 border-black brutal-shadow"
           >
-            Register →
+            {navbarData.cta.label}
           </a>
         </div>
       )}
