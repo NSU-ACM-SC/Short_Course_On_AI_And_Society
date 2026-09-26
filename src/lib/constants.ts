@@ -33,7 +33,7 @@ export const eventDetails = {
   feeNote: "For the full 3-day course",
   eligibility: "Undergraduate students from all UGC-approved universities in Bangladesh",
   facebookEvent: "https://www.facebook.com/share/1GeR3whngx/",
-  registrationLink: "", // ← PASTE REGISTRATION LINK HERE
+  registrationLink: "https://forms.gle/ZxV6yKN3DZvfrAMs7",
   startDate: "2026-09-30T09:30:00+06:00",
 };
 

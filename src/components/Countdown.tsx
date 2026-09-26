@@ -12,7 +12,7 @@ export default function Countdown() {
   const registerHref = hasRegistration
     ? eventDetails.registrationLink
     : "#register";
-  const registerLabel = hasRegistration ? "Register Now →" : "Pre-Register Now →";
+  const registerLabel = "Pre-Register Now →";
 
   useEffect(() => {
     const target = new Date(eventDetails.startDate).getTime();
