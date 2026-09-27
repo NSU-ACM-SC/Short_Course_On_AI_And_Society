@@ -26,7 +26,7 @@ export const detailCards: DetailCardItem[] = [
   {
     icon: "💰",
     label: "Registration Fee",
-    value: "BDT 1,500",
+    value: "Free",
     sub: "For the full 3-day course",
   },
   {
