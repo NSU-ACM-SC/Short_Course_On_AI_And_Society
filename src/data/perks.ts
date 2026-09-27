@@ -21,12 +21,6 @@ export const perks: PerkItem[] = [
       "Complimentary lunch and snacks provided throughout all 3 days of the course.",
   },
   {
-    icon: "🎁",
-    title: "Goodie Bag",
-    description:
-      "Exclusive workshop goodie bag for all participants with special course materials.",
-  },
-  {
     icon: "📜",
     title: "Completion Certificate",
     description:
