@@ -44,7 +44,24 @@ export default function Registration() {
             ))}
           </div>
 
-          <div>
+          <div className="flex flex-col items-center gap-8">
+            {/* Survey Button */}
+            {registrationData.surveyLink && (
+              <div className="flex flex-col items-center gap-3">
+                <a
+                  href={registrationData.surveyLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 font-mono text-lg font-bold uppercase tracking-wider px-12 py-5 bg-white text-black brutal-border-thick shadow-[6px_6px_0_rgba(0,0,0,0.3)] hover:bg-gray-200 hover:translate-x-1 hover:translate-y-1 hover:shadow-[3px_3px_0_rgba(0,0,0,0.3)] transition-all"
+                >
+                  {registrationData.surveyLabel}
+                </a>
+                <span className="font-mono text-sm font-bold text-white bg-red-600 px-3 py-1 brutal-border shadow-[2px_2px_0_rgba(0,0,0,0.3)]">
+                  {registrationData.surveyNotice}
+                </span>
+              </div>
+            )}
+
             {/* Registration Button */}
             {regLink ? (
               <a

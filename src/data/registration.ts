@@ -12,6 +12,9 @@ export interface RegistrationData {
   stats: RegistrationStatItem[];
   preRegistrationLink: string;
   registrationLink: string;
+  surveyLink: string;
+  surveyLabel: string;
+  surveyNotice: string;
   buttonLabel: string;
   alertMessage: string;
   pendingNotice: string;
@@ -21,6 +24,7 @@ export interface RegistrationData {
 // Pre-registration & registration links
 export const preRegistrationLink = "https://forms.gle/ZxV6yKN3DZvfrAMs7";
 export const registrationLink = "https://forms.gle/Hfipd3BKvirKewVq5";
+export const surveyLink = "https://cornell.ca1.qualtrics.com/jfe/form/SV_42QoJyKFgRX7Bfo";
 
 export const registrationData: RegistrationData = {
   badge: "Register Now",
@@ -35,6 +39,9 @@ export const registrationData: RegistrationData = {
   ],
   preRegistrationLink,
   registrationLink,
+  surveyLink,
+  surveyLabel: "Pre-course Survey →",
+  surveyNotice: "Note: Filling out this survey is mandatory before registration.",
   buttonLabel: "Register Now →",
   alertMessage: "Registration link will be available soon. Stay tuned!",
   pendingNotice: "⚠ Registration link will be pasted here soon",

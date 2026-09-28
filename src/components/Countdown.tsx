@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { eventDetails } from "@/data/event";
 import { countdownData } from "@/data/countdown";
+import { registrationData } from "@/data/registration";
 import { FacebookIcon } from "@/components/Icons";
 
 export default function Countdown() {
@@ -84,6 +85,24 @@ export default function Countdown() {
 
         {/* Action Buttons */}
         <div className="flex flex-wrap gap-3 sm:gap-4 justify-center px-4">
+          {registrationData.surveyLink && (
+            <div className="relative group inline-flex">
+              <a
+                href={registrationData.surveyLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 font-mono text-xs sm:text-sm font-bold uppercase tracking-wider px-6 sm:px-8 py-3 sm:py-3.5 bg-white text-black border-2 border-white hover:bg-gray-200 transition-all"
+                title={registrationData.surveyNotice}
+              >
+                {registrationData.surveyLabel}
+              </a>
+              {registrationData.surveyNotice && (
+                <span className="absolute -top-3 -right-3 bg-red-600 text-white text-[10px] px-1.5 py-0.5 border border-white whitespace-nowrap">
+                  Mandatory
+                </span>
+              )}
+            </div>
+          )}
           <a
             href={registerHref}
             target={hasRegistration ? "_blank" : undefined}
